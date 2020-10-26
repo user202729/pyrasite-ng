@@ -38,8 +38,11 @@ def inject(pid, filename, verbose=False, gdb_prefix=''):
         shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     if verbose:
-        print(out)
-        print(err)
+        print("====== gdb stdout: ======")
+        print(out.decode("u8"))
+        print("====== gdb stderr: ======")
+        print(err.decode("u8"))
+        print("======")
 
 if platform.system() == 'Windows':
     def inject_win(pid, filename, verbose=False, gdb_prefix=''):
