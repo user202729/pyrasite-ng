@@ -135,6 +135,7 @@ class PyrasiteIPC(object):
     def create_payload(self):
         """Write out a reverse python connection payload with a custom port"""
         (fd, filename) = tempfile.mkstemp()
+        os.chmod(filename, 0o644)
         tmp = os.fdopen(fd, 'w')
         path = dirname(abspath(pyrasite.__file__))
         payload = open(join(path, 'reverse.py'))
