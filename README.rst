@@ -1,6 +1,6 @@
 pyrasite (updated)
 ========
-This package is a fork of `http://github.com/lmacken/pyrasite` containing several important fixes to make pyrasite work on modern systems.
+This package is a fork of `https://github.com/lmacken/pyrasite` containing several important fixes to make pyrasite work on modern systems.
 
 Requirements
 ~~~~~~~~~~~~
@@ -10,7 +10,7 @@ Requirements
 On OS X you will need to have a codesigned gdb - see https://sourceware.org/gdb/wiki/BuildingOnDarwin
 if you get errors while running with --verbose which mention codesigning.
 
-On linux machines, run `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope` before running pyrasite.
+On Linux machines, run `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope` before running pyrasite.
 
 Compatibility
 ~~~~~~~~~~~~~
