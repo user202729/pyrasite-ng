@@ -14,7 +14,7 @@ except Exception:
 version = '2.0'
 
 f = open('README.rst')
-long_description = f.read().split('split here')[1]
+long_description = f.read()
 f.close()
 
 requirements = ['urwid']
@@ -56,14 +56,14 @@ class build_py(_build_py):
         self.announce("Could not find an x64 microsoft compiler for supporting injection to 64 bit python instances", 2)
 
 
-setup(name='pyrasite',
+setup(name='pyrasite-ng',
       version=version,
       description="Inject code into a running Python process",
       long_description=long_description,
       keywords='debugging injection runtime',
       author='Luke Macken',
       author_email='lmacken@redhat.com',
-      url='http://pyrasite.com',
+      url='https://github.com/user202729/pyrasite',
       license='GPLv3',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,

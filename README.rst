@@ -1,5 +1,6 @@
 pyrasite (updated)
-========
+==================
+
 This package is a fork of `https://github.com/lmacken/pyrasite` containing several important fixes to make pyrasite work on modern systems.
 
 Requirements
