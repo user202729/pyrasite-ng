@@ -1,7 +1,7 @@
 pyrasite (updated)
 ==================
 
-This package is a fork of `https://github.com/lmacken/pyrasite` containing several important fixes to make pyrasite work on modern systems.
+This package is a fork of https://github.com/lmacken/pyrasite containing several important fixes to make pyrasite work on modern systems.
 
 Requirements
 ~~~~~~~~~~~~
@@ -24,8 +24,6 @@ pyrasite-gui
 ~~~~~~~~~~~~
 
 The graphical interface can be found here: https://github.com/lmacken/pyrasite-gui
-
-.. image:: http://lewk.org/img/pyrasite/pyrasite-info-thumb.png
 
 Authors
 ~~~~~~~

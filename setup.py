@@ -11,7 +11,7 @@ try:
 except Exception:
     pass
 
-version = '2.0'
+version = '2.0.1'
 
 f = open('README.rst')
 long_description = f.read()
@@ -63,7 +63,7 @@ setup(name='pyrasite-ng',
       keywords='debugging injection runtime',
       author='Luke Macken',
       author_email='lmacken@redhat.com',
-      url='https://github.com/user202729/pyrasite',
+      url='https://github.com/user202729/pyrasite-ng',
       license='GPLv3',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
