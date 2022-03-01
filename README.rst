@@ -25,6 +25,14 @@ pyrasite-gui
 
 The graphical interface can be found here: https://github.com/lmacken/pyrasite-gui
 
+Bugs
+~~~~
+
+Report bug of this fork on GitHub: https://github.com/user202729/pyrasite-ng/issues
+
+Alternatively, as a workaround while waiting for the bug to be fixed,
+it's possible to use gdb to inject code into Python directly: https://stackoverflow.com/a/70312000/5267751
+
 Authors
 ~~~~~~~
 
