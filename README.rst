@@ -1,6 +1,9 @@
 pyrasite (updated)
 ==================
 
+.. image:: https://img.shields.io/pypi/v/pyrasite-ng?style=flat
+   :target: https://pypi.python.org/pypi/pyrasite-ng/
+
 This package is a fork of https://github.com/lmacken/pyrasite containing several important fixes to make pyrasite work on modern systems.
 
 Requirements
