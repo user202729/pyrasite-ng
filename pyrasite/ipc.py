@@ -64,7 +64,7 @@ class PyrasiteIPC(object):
     # shell payloads with netcat.
     reliable = True
 
-    def __init__(self, pid, reverse='ReversePythonConnection', timeout=5):
+    def __init__(self, pid, reverse='ReversePythonConnection', timeout=5, verbose=False):
         super(PyrasiteIPC, self).__init__()
         self.pid = pid
         self.sock = None
@@ -73,6 +73,7 @@ class PyrasiteIPC(object):
         self.port = None
         self.reverse = reverse
         self.timeout = float(timeout)
+        self.verbose = verbose
 
     def __enter__(self):
         self.connect()
@@ -160,7 +161,7 @@ class PyrasiteIPC(object):
     def inject(self):
         """Inject the payload into the process."""
         filename = self.create_payload()
-        pyrasite.inject(self.pid, filename)
+        pyrasite.inject(self.pid, filename, verbose=self.verbose)
         os.unlink(filename)
 
     def wait(self):

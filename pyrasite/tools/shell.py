@@ -23,18 +23,17 @@ import pyrasite
 def shell():
     """Open a Python shell in a running process"""
 
-    usage = "Usage: pyrasite-shell <PID>"
-    if not len(sys.argv) == 2:
-        print(usage)
-        sys.exit(1)
-    try:
-        pid = int(sys.argv[1])
-    except ValueError:
-        print(usage)
-        sys.exit(1)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("pid", type=int)
+    parser.add_argument('--verbose', dest='verbose', help='Verbose mode',
+                        default=False, action='store_const', const=True)
+    args = parser.parse_args()
+    pid = args.pid
 
     ipc = pyrasite.PyrasiteIPC(pid, 'ReversePythonShell',
-                               timeout=os.getenv('PYRASITE_IPC_TIMEOUT') or 5)
+                               timeout=os.getenv('PYRASITE_IPC_TIMEOUT') or 5,
+                               verbose=args.verbose)
     ipc.connect()
 
     print("Pyrasite Shell %s" % pyrasite.__version__)
