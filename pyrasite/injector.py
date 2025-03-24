@@ -46,6 +46,7 @@ def inject(pid, filename, verbose=False, gdb_prefix=''):
         print("======")
     if b"ptrace: Operation not permitted" in err:
         sys.exit("Error: Looks like ptrace permission is not enabled.\nHave you run `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`?")
+        # main.ptrace_check does a similar thing
 
 if platform.system() == 'Windows':
     def inject_win(pid, filename, verbose=False, gdb_prefix=''):
