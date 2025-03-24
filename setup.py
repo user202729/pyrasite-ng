@@ -11,7 +11,7 @@ try:
 except Exception:
     pass
 
-version = '2.0.2'
+version = '2.0.3'
 
 f = open('README.rst')
 long_description = f.read()
