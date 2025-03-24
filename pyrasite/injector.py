@@ -15,6 +15,7 @@
 #
 # Copyright (C) 2011-2013 Red Hat, Inc., Luke Macken <lmacken@redhat.com>
 
+import sys
 import os
 import subprocess
 import platform
@@ -43,6 +44,8 @@ def inject(pid, filename, verbose=False, gdb_prefix=''):
         print("====== gdb stderr: ======")
         print(err.decode("u8"))
         print("======")
+    if b"ptrace: Operation not permitted" in err:
+        sys.exit("Error: Looks like ptrace permission is not enabled.\nHave you run `echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope`?")
 
 if platform.system() == 'Windows':
     def inject_win(pid, filename, verbose=False, gdb_prefix=''):
