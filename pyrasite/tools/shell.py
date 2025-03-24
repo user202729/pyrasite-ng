@@ -24,16 +24,17 @@ def shell():
     """Open a Python shell in a running process"""
 
     import argparse
+    from pyrasite.main import add_common_arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("pid", type=int)
-    parser.add_argument('--verbose', dest='verbose', help='Verbose mode',
-                        default=False, action='store_const', const=True)
+    parser.add_argument("pid", type=int,
+                        help="The ID of the process to inject code into")
+    add_common_arguments(parser)
     args = parser.parse_args()
     pid = args.pid
 
     ipc = pyrasite.PyrasiteIPC(pid, 'ReversePythonShell',
-                               timeout=os.getenv('PYRASITE_IPC_TIMEOUT') or 5,
-                               verbose=args.verbose)
+                               timeout=os.getenv('PYRASITE_IPC_TIMEOUT') or args.ipc_timeout,
+                               verbose=args.verbose, gdb_prefix=args.gdb_prefix)
     ipc.connect()
 
     print("Pyrasite Shell %s" % pyrasite.__version__)

@@ -66,6 +66,16 @@ def expand_payload(payload):
             return fn
     return payload
 
+def add_common_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument('--gdb-prefix', dest='gdb_prefix',
+                        help='GDB prefix (if specified during installation)',
+                        default="")
+    parser.add_argument('--verbose', dest='verbose', help='Verbose mode',
+                        default=False, action='store_const', const=True)
+    parser.add_argument('--ipc-timeout', dest='ipc_timeout', default=5,
+                        action='store', type=int,
+                        help="The number of seconds to wait for the injected"
+                             " code to reply over IPC before giving up.")
 
 def main():
     ptrace_check()
@@ -82,20 +92,12 @@ def main():
                              " payloads (see --list-payloads) or a filname.")
     parser.add_argument('-l', '--list-payloads', help='List standard payloads',
                         default=False, action='store_const', const=True)
-    parser.add_argument('--gdb-prefix', dest='gdb_prefix',
-                        help='GDB prefix (if specified during installation)',
-                        default="")
-    parser.add_argument('--verbose', dest='verbose', help='Verbose mode',
-                        default=False, action='store_const', const=True)
     parser.add_argument('--output', dest='output_type', default='procstreams',
                         action='store',
                         help="Set where output is to be printed. 'procstreams'" 
                              " prints output in stdout/stderr of running process"
                              " and 'localterm' prints output in local terminal.")
-    parser.add_argument('--ipc-timeout', dest='ipc_timeout', default=5,
-                        action='store', type=int,
-                        help="The number of seconds to wait for the injected"
-                             " code to reply over IPC before giving up.")
+    add_common_arguments(parser)
 
     if len(sys.argv) == 1:
         parser.print_help()
